@@ -14,7 +14,6 @@
       if [ $USERID -ne 0 ]
       then
       echo "$Y run the script with root priviliges $N" | tee -a $LOG_FILE
-      echo -e "$Y run the script with root priviliges $N" | tee -a $LOG_FILE
       exit 1
       fi
   }
@@ -25,7 +24,6 @@
       exit 1
       else 
       echo -e  "$2 is $G  sucess $N"  | tee -a $LOG_FILE
-      exit 1
       fi
   }
    echo "script started at : $(date)"  | tee -a $LOG_FILE

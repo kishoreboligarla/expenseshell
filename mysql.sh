@@ -13,6 +13,7 @@
   CHECK_ROOT(){
       if [ $USERID -ne 0 ]
       then
+      echo "$Y run the script with root priviliges $N" | tee -a $LOG_FILE
       echo -e "$Y run the script with root priviliges $N" | tee -a $LOG_FILE
       exit 1
       fi
@@ -29,11 +30,12 @@
   }
    echo "script started at : $(date)"  | tee -a $LOG_FILE
    CHECK_ROOT 
-   dnf install mysql-server -y
+   dnf install mysql-server -y &>>$LOG_FILE
    VALIDATE $? "installing MYSQL server"
-   systemctl enable mysqld
-   VALIDATE $? "Enabled MYSQL server"
-   systemctl start mysqld
+   systemctl enable mysqld &>>$LOG_FILE
+   VALIDATE $? "Enabled MYSQL server"  
+   systemctl start mysqld &>>$LOG_FILE
    VALIDATE $? "started MYSQL server"
-   mysql_secure_installation --set-root-pass ExpenseApp@1
+   mysql_secure_installation --set-root-pass ExpenseApp@1 &>>$LOG_FILE
     VALIDATE $? "settingup root password"
+  

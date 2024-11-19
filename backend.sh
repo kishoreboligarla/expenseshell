@@ -42,3 +42,12 @@ VALIDATE $? "create user xpense"  | tee -a $LOG_FILE
 else 
 echo -e "expense user already exist...$Y SKIPPING $N"
 fi
+mkdir -p /app #here -p is used for check the app direcory create or not if it creates goes next step else create a app directory
+VALIDATE "creating /app folder"
+curl -o /tmp/backend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-backend-v2.zip  &>>$LOG_FILE
+VALIDATE $? "downloading backend appilication code"
+cd /app
+unzip /tmp/backend.zip
+VALIDATE $? "extracting backend application code"
+
+

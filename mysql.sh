@@ -13,7 +13,7 @@
   CHECK_ROOT(){
       if [ $USERID -ne 0 ]
       then
-      echo "run the script with root priviliges" | tee -a $LOG_FILE
+      echo "$Y run the script with root priviliges $N" | tee -a $LOG_FILE
       exit 1
       fi
   }
@@ -23,7 +23,7 @@
       echo "$2 is $R failure $N"   | tee -a $LOG_FILE
       exit 1
       else 
-      echo -e  "$2 is $R  sucess $N"  | tee -a $LOG_FILE
+      echo -e  "$2 is $G  sucess $N"  | tee -a $LOG_FILE
       exit 1
       fi
   }

@@ -19,7 +19,7 @@
   }
   VALIDATE(){
       if [ $1 -ne 0 ]
-      then-
+      then
       echo "$2 is $R failure $N"   | tee -a $LOG_FILE
       exit 1
       else 
@@ -37,4 +37,3 @@
    VALIDATE $? "started MYSQL server"
    mysql_secure_installation --set-root-pass ExpenseApp@1
     VALIDATE $? "settingup root password"
-    

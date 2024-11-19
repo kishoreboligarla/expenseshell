@@ -13,7 +13,7 @@
   CHECK_ROOT(){
       if [ $USERID -ne 0 ]
       then
-      echo "$Y run the script with root priviliges $N" | tee -a $LOG_FILE
+      echo -e "$Y run the script with root priviliges $N" | tee -a $LOG_FILE
       exit 1
       fi
   }

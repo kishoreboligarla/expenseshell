@@ -33,7 +33,7 @@ dnf module enable nodejs:20 -y &>>$LOG_FILE
 VALIDATE $? "Enable nodejs:20"
 dnf install nodejs -y &>>$LOG_FILE
 VALIDATE $? "install nodejs" | tee -a $LOG_FILE
-id expense
+id expense &>>$LOG_FILE
  if [ $? -ne 0 ]
  then
   echo -e "expense user not exsists...$G creating it"
@@ -41,3 +41,4 @@ useradd expense &>>$LOG_FILE
 VALIDATE $? "create user xpense"  | tee -a $LOG_FILE
 else 
 echo -e "expense user already exist...$Y SKIPPING $N"
+fi

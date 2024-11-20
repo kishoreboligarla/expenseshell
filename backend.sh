@@ -58,7 +58,7 @@ cp /home/ec2-user/expenseshell/backend.service /etc/systemd/system/backend.servi
 dnf install mysql -y &>>LOG_FILE
 VALIDATE $? "installing MYSQL clint"
 
-mysql -h mysql.kishoreboligarla.shop -uroot -pExpenseApp@1 < /app/schema/backend.sql &>>$LOG_FILE
+mysql -h mysql.kishoreboligarla.shop -uroot -pExpenseApp@1 < /app/schema/backend.sql # &>>$LOG_FILE
 VALIDATE $? "schema loading is"
 
 systemctl daemon-reload  &>>$LOG_FILE

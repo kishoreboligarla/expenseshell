@@ -49,6 +49,8 @@ VALIDATE $? "downloading backend appilication code" | tee -a $LOG_FILE
 cd /app
 unzip /tmp/backend.zip #&>>$LOG_FILE
 VALIDATE $? "extracting backend application code"
+exit 1
+
 
 
 

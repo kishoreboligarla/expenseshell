@@ -45,14 +45,14 @@ VALIDATE $? "start nginx"
 rm -rf /usr/share/nginx/html/*  &>>LOG_FILE
 VALIDATE $? "removing default webpage"
 
-curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip  &>>LOG_FILE
+curl -o /tmp/frontend.zip https://expense-builds.s3.us-east-1.amazonaws.com/expense-frontend-v2.zip # &>>LOG_FILE
 VALIDATE $? "downloading frontend code"
 
-cd /usr/share/nginx/html  &>>LOG_FILE
-unzip /tmp/frontend.zip  &>>LOG_FILE
+cd /usr/share/nginx/html  #&>>LOG_FILE
+unzip /tmp/frontend.zip  #&>>LOG_FILE
 VALIDATE $? "unzipping the front end code"
 
-cp /home/ec2-user/expenseshell/expense.conf /etc/nginx/default.d/expense.conf
+cp /home/ec2-user/expen-seshell/expense.conf /etc/nginx/default.d/expense.conf
 systemctl restart nginx 
 VALIDATE $? "Restarted Nginx"
 

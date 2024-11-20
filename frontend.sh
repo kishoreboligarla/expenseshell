@@ -53,7 +53,8 @@ unzip /tmp/frontend.zip  &>>LOG_FILE
 VALIDATE $? "unzipping the front end code"
 
 cp /home/ec2-user/expenseshell/expense.conf /etc/nginx/default.d/expense.conf
-systemctl restart nginx
+systemctl restart nginx &>>LOG_FILE
+VALIDATE $? "Restarted Nginx"
 
 
 

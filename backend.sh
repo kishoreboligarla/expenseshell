@@ -50,8 +50,10 @@ cd /app
 rm -rf /app/* #remove the existing code
 unzip /tmp/backend.zip &>>$LOG_FILE
 VALIDATE $? "extracting backend application code"
+
 npm install &>>$LOG_FILE
-cp /home/ec2-user/expenseshell/backend.service/etc/systemd/system/backend.service
+cp /home/ec2-user/expenseshell/backend.service /etc/systemd/system/backend.service
+
 #load the data before running background
 dnf install mysql -y &>>LOG_FILE
 VALIDATE $? "installing MYSQL clint"

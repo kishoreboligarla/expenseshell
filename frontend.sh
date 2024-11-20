@@ -54,8 +54,8 @@ VALIDATE $? "unzipping the front end code"
 
 cp /home/ec2-user/expenseshell/expense.conf /etc/nginx/default.d/expense.conf
 VALIDATE $? "Copied expense conf"
-#systemctl restart nginx 
-#VALIDATE $? "Restarted Nginx"
+systemctl restart nginx 
+VALIDATE $? "Restarted Nginx"
 
 
 

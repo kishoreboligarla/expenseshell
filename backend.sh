@@ -25,6 +25,7 @@
       echo -e  "$2 is $G  sucess $N"  | tee -a $LOG_FILE
       fi
   }
+
    echo "script started at : $(date)"  | tee -a $LOG_FILE
    CHECK_ROOT 
 dnf module disable nodejs -y &>>$LOG_FILE
@@ -65,9 +66,6 @@ systemctl daemon-reload  &>>$LOG_FILE
 VALIDATE $? "demon reload"
 
 systemctl restart backend  &>>$LOG_FILE
-VALIDATE "restart backend"
-
-systemctl start backend  &>>$LOG_FILE
 VALIDATE $? "restart backend"
 
 
